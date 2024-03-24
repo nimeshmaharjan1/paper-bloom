@@ -1,5 +1,9 @@
-import { Stack } from "expo-router";
+import { Slot } from "expo-router";
 import "../../global.css";
+
+import { Keyboard, TouchableWithoutFeedback } from "react-native";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
+
 import PaperProvider from "../components/paper-provider";
 
 export {
@@ -40,10 +44,12 @@ export default function RootLayout() {
 
 function RootLayoutNav() {
   return (
-    <PaperProvider>
-      <Stack>
-        <Stack.Screen name="(shop)" options={{ headerShown: false }} />
-      </Stack>
-    </PaperProvider>
+    <GestureHandlerRootView className="flex-1">
+      <PaperProvider>
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+          <Slot />
+        </TouchableWithoutFeedback>
+      </PaperProvider>
+    </GestureHandlerRootView>
   );
 }

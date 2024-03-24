@@ -7,7 +7,7 @@ const HomeLayout = () => {
       screenOptions={{
         headerShown: false,
       }}
-    ></Stack>
+    />
   );
 };
 
