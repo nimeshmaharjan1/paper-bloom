@@ -1,4 +1,4 @@
-import { Slot } from "expo-router";
+import { Stack } from "expo-router";
 import "../../global.css";
 
 import { Keyboard, TouchableWithoutFeedback } from "react-native";
@@ -10,10 +10,6 @@ export {
   // Catch any errors thrown by the Layout component.
   ErrorBoundary,
 } from "expo-router";
-// export const unstable_settings = {
-//   // Ensure that reloading on `/modal` keeps a back button present.
-//   initialRouteName: "(shop)/home",
-// };
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 // SplashScreen.preventAutoHideAsync();
@@ -47,7 +43,13 @@ function RootLayoutNav() {
     <GestureHandlerRootView className="flex-1">
       <PaperProvider>
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-          <Slot />
+          <Stack
+            screenOptions={{
+              headerShown: false,
+            }}
+          >
+            <Stack.Screen name="(app)" />
+          </Stack>
         </TouchableWithoutFeedback>
       </PaperProvider>
     </GestureHandlerRootView>

@@ -4,6 +4,7 @@ import {
   MD3LightTheme as DefaultTheme,
   PaperProvider as ParentProvider,
 } from "react-native-paper";
+
 import DarkTheme from "../constants/themes/dark.json";
 import LightTheme from "../constants/themes/light.json";
 const PaperProvider: React.FC<PropsWithChildren> = ({ children }) => {
